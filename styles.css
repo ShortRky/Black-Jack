@@ -1,0 +1,189 @@
+:root {
+    --primary-color: #D64545;    /* Traditional red */
+    --secondary-color: #2A2B2A;  /* Dark gray */
+    --accent-color: #F7B538;     /* Gold */
+    --bg-color: #F5F5F5;         /* Light gray */
+    --text-color: #1A1A1A;       /* Almost black */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    background-image: linear-gradient(45deg, #e5e5e5 25%, transparent 25%),
+                      linear-gradient(-45deg, #e5e5e5 25%, transparent 25%),
+                      linear-gradient(45deg, transparent 75%, #e5e5e5 75%),
+                      linear-gradient(-45deg, transparent 75%, #e5e5e5 75%);
+    background-size: 20px 20px;
+    font-family: "Noto Sans JP", Arial, sans-serif;
+}
+
+.game-container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.japanese-title {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    font-family: "Noto Sans JP", sans-serif;
+}
+
+.money-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: var(--bg-color);
+    border-radius: 10px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.balance {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: "Noto Sans JP", sans-serif;
+}
+
+button:hover {
+    background-color: #B83232;
+    transform: translateY(-2px);
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+input[type="number"] {
+    padding: 12px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 5px;
+    font-size: 16px;
+    width: 150px;
+    margin-right: 10px;
+}
+
+.cards {
+    display: flex;
+    gap: 15px;
+    min-height: 180px;
+    padding: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 120px;
+    height: 180px;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    background: white;
+    position: relative;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: dealCard 0.3s ease-out forwards;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-image: linear-gradient(135deg, #fff 0%, #f5f5f5 100%);
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+@keyframes dealCard {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) rotate(-5deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) rotate(0);
+    }
+}
+
+.card.red {
+    color: var(--primary-color);
+}
+
+.dealer-area, .player-area {
+    margin: 30px 0;
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+h2 {
+    color: var(--secondary-color);
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    font-family: "Noto Sans JP", sans-serif;
+}
+
+#messages {
+    text-align: center;
+    font-size: 24px;
+    color: var(--primary-color);
+    margin-top: 20px;
+    padding: 15px;
+    font-weight: bold;
+}
+
+.controls {
+    margin: 20px 0;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.borrow {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
