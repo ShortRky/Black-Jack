@@ -156,7 +156,7 @@ function stand() {
     }
     else if (playerSum > dealerSum) {
         message = "You Win!";
-        balance += currentBet * 2;
+        balance += currentBet * 4;
     }
     else {
         message = "You Lose!";
